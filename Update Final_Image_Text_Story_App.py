@@ -64,9 +64,9 @@ def generate_story_from_text(scenario: str) -> str:
 def main() -> None:
     st.set_page_config(page_title="IMAGE TO STORY CONVERTER", page_icon="🖼️")
     st.markdown(css_code, unsafe_allow_html=True)
-    st.image("IMG-20210428-WA007")
+    st.image("IMG-20210428=-WA007")
     with st.sidebar:
-        st.image("IMG-20210428-WA007")
+        st.image("IMG-20210428=-WA007")
         st.write("AI App created by @ PragyanAI - Education Purpose")
         st.write("Contact Sateesh Ambesange for 5 Days Workshop:pragyan.ai.school@gmail.com")
         st.write("TB - Story to Audio will be done Later")
@@ -74,16 +74,16 @@ def main() -> None:
     uploaded_file: Any = st.file_uploader("Please choose a file to upload", type="jpg")
     if uploaded_file is not None:
         bytes_data: Any = uploaded_file.getvalue()
-        with open(uploaded_file.IMG-20210428-WA007, "wb") as file:
+        with open(uploaded_file.name, "wb") as file:
             file.write(bytes_data)
         st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
         progress_bar(100)
-        scenario: str = generate_text_from_image(uploaded_file.IMG-20210428-WA007)
+        scenario: str = generate_text_from_image(uploaded_file.name)
         story: str = generate_story_from_text(scenario)
         with st.expander("Generated Image scenario"):
             st.write(scenario)
         with st.expander("Generated short story"):
             st.write(story)
 
-if _IMG-20210428-WA007_ == "_main_":
+if _name_ == "_main_":
     main()
